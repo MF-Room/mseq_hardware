@@ -2,10 +2,10 @@
 chip = "STM32F411CEUx"
 
 [default.reset]
-halt_afterwards = true
+halt_afterwards = false
 
 [default.rtt]
-enabled = false
+enabled = true
 
 [default.gdb]
-enabled = true
+enabled = false
