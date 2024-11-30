@@ -7,7 +7,7 @@ rtt:
 	cargo run -r
 
 gdb_server:
-	probe-rs gdb --chip STM32F411CEUx
+	probe-rs gdb --chip $(CHIP)
 
 gdb:
 	cargo build -r
