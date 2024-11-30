@@ -7,9 +7,9 @@ rtt:
 	cargo run -r
 
 gdb_server:
+	$(MAKE) flash
 	probe-rs gdb --chip $(CHIP)
 
 gdb:
-	cargo build -r
 	arm-none-eabi-gdb target/thumbv7em-none-eabihf/release/mseq_hardware
 
