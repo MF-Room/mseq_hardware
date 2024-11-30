@@ -1,8 +1,6 @@
-[target.'cfg(all(target_arch = "arm", target_os = "none"))']
-rustflags = [
-  "-C", "link-arg=-Tlink.x",
-]
+[target.thumbv7em-none-eabihf]
+rustflags = ["-C", "link-arg=-Tlink.x"] # Linking with the cortex-m-rt script
+runner = 'probe-rs run --chip STM32F411CEUx'
 
 [build]
 target = "thumbv7em-none-eabihf"
-chip = "STM32F411CEUx"
