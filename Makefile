@@ -1,4 +1,5 @@
-CHIP:=STM32F411CEUx
+CHIP := STM32F411CEUx
+GDB ?= arm-none-eabi-gdb
 
 flash:
 	cargo flash --chip $(CHIP) --release
@@ -11,5 +12,5 @@ gdb_server:
 	probe-rs gdb --chip $(CHIP)
 
 gdb:
-	arm-none-eabi-gdb -x init.gdb target/thumbv7em-none-eabihf/release/mseq_hardware
+	 $(GDB) -x init.gdb target/thumbv7em-none-eabihf/release/mseq_hardware
 
