@@ -30,9 +30,10 @@ fn main() -> ! {
     rprintln!("Hello world");
 
     let mut test: Vec<u32> = vec![];
+    test.push(1);
+    rprintln!("Test: {}", test[0]);
 
     loop {
-        rprintln!("Test: {}", test[0]);
     }
 }
 
