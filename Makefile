@@ -13,4 +13,3 @@ gdb_server:
 
 gdb:
 	 $(GDB) -x init.gdb target/thumbv7em-none-eabihf/release/mseq_hardware
-
