@@ -11,5 +11,5 @@ gdb_server:
 	probe-rs gdb --chip $(CHIP)
 
 gdb:
-	arm-none-eabi-gdb target/thumbv7em-none-eabihf/release/mseq_hardware
+	arm-none-eabi-gdb -x init.gdb target/thumbv7em-none-eabihf/release/mseq_hardware
 
