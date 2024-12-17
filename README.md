@@ -9,6 +9,10 @@
 
 ## Usage
 
+Midi UART:
+* RX: A10
+* TX: A9
+
 ### Flash only
 
 ```bash

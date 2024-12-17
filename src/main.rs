@@ -36,34 +36,31 @@ fn main() -> ! {
 
     // Configure UART
     let gpioa = dp.GPIOA.split();
-    /*
-        let rx_1 = gpioa.pa10.into_alternate();
-        let tx_1 = gpioa.pa9.into_alternate();
-    */
+    let rx_1 = gpioa.pa10.into_alternate();
+    let tx_1 = gpioa.pa9.into_alternate();
 
-    let rx_6 = gpioa.pa12.into_alternate();
-    let tx_6 = gpioa.pa11.into_alternate();
-
-    let mut uart6 = Serial::new(
-        dp.USART6,
-        (tx_6, rx_6),
+    let mut uart1 = Serial::new(
+        dp.USART1,
+        (tx_1, rx_1),
         Config::default()
-            .baudrate(9600.bps())
+            .baudrate(31250.bps())
             .parity_none()
             .stopbits(StopBits::STOP1)
-            .dma(serial::config::DmaConfig::None),
+            .wordlength_8(),
         &clocks,
     )
-    .unwrap();
-
-    uart6.write_str("TEST\n").unwrap();
+    .unwrap()
+    .with_u8_data();
 
     let mut test: Vec<u32> = vec![];
     test.push(1);
     rprintln!("Test: {}", test[0]);
 
     loop {
-        uart6.write_str("TEST\n").unwrap();
+        let res1 = uart1.read();
+        if let Ok(res) = res1 {
+            rprintln!("MIDI read: {}", res);
+        }
     }
 }
 
